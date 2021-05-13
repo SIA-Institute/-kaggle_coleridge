@@ -221,4 +221,11 @@ def pattern_search(text, search_terms, pattern, break_words = [], distance = 5, 
 
     return all_finds if all_finds!= '' else None
 
+def get_citations(text):
+    x = re.finditer('\((\w| |&|,)+, (19|20)\d\d(,.*?\)|;.*?\)|\))', text)
+    all_citations = []
+    for i in x:
+        all_citations.append(text[i.start(): i.end()])
+    return all_citations
+
 # </ELISA'S CODE>
